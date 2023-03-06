@@ -29,7 +29,7 @@ local CodeStats = {
         vim.b.current_xp = 0
       end,
     })
-    if config.send_on_exit == nil or config.send_on_exit then  -- by default send xp on nvim exit
+    if config.send_on_exit == nil or config.send_on_exit then -- by default send xp on nvim exit
       vim.api.nvim_create_autocmd({ 'VimLeavePre' }, {
         group = group,
         pattern = '*',
@@ -38,7 +38,7 @@ local CodeStats = {
         end,
       })
     end
-    if config.send_on_timer == nil or config.send_on_timer then  -- by default send xp on timer
+    if config.send_on_timer == nil or config.send_on_timer then -- by default send xp on timer
       local interval = config.timer_interval or 10000 -- every 10 seconds
       vim.loop.new_timer():start(
         interval,
@@ -48,6 +48,9 @@ local CodeStats = {
         end)
       )
     end
+    vim.api.nvim_create_user_command('CodeStatsSend', function()
+      self:send_xp()
+    end, { desc = 'Explicitly send XP to Code::Stats' })
   end,
 
   add_xp = function(self, filetype, xp)
