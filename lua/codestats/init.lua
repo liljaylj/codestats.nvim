@@ -12,14 +12,14 @@ local CodeStats = {
     vim.api.nvim_create_autocmd({ 'InsertCharPre', 'TextChanged' }, {
       group = group,
       pattern = '*',
-      callback = function(data)
+      callback = function()
         if not vim.b.current_xp then
           vim.b.current_xp = 0
         end
         vim.b.current_xp = vim.b.current_xp + 1
       end,
     })
-    vim.api.nvim_create_autocmd({ 'BufWrite', 'BufLeave', 'InsertLeave' }, {
+    vim.api.nvim_create_autocmd({ 'CursorHold', 'BufLeave' }, {
       group = group,
       pattern = '*',
       callback = function()
