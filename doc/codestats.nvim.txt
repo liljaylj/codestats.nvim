@@ -3,10 +3,10 @@
 ==============================================================================
 Table of Contents                           *codestats.nvim-table-of-contents*
 
-  - Code::Stats lua plugin for Neovim|codestats.nvim-code::stats-lua-plugin-for-neovim|
-
-CODE::STATS LUA PLUGIN FOR NEOVIM*codestats.nvim-code::stats-lua-plugin-for-neovim*
-
+1. Requirements                                  |codestats.nvim-requirements|
+2. Installation                                  |codestats.nvim-installation|
+3. Commands                                          |codestats.nvim-commands|
+4. TODO:                                                |codestats.nvim-todo:|
 Neovim plugin that counts your keypresses and saves statistics to Code::Stats
 <https://codestats.net>, a free stats tracking service for programmers.
 
@@ -17,7 +17,8 @@ as luv asynchronous job and therefore it loads faster and don’t interfere
 with interface rendering.
 
 
-REQUIREMENTS ~
+==============================================================================
+1. Requirements                                  *codestats.nvim-requirements*
 
 
 - Neovim
@@ -25,7 +26,8 @@ REQUIREMENTS ~
 - plenary.nvim <https://github.com/nvim-lua/plenary.nvim>
 
 
-INSTALLATION ~
+==============================================================================
+2. Installation                                  *codestats.nvim-installation*
 
 
 1. Get a Code::Stats account and copy your API key from the Code::Stats machine
@@ -52,13 +54,15 @@ page <https://codestats.net/my/machines>.
 <
 
 
-COMMANDS ~
+==============================================================================
+3. Commands                                          *codestats.nvim-commands*
 
 
 - `:CodeStatsSend` — manually send XP to Code::Stats <https://codestats.net>
 
 
-TODO: ~
+==============================================================================
+4. TODO:                                                *codestats.nvim-todo:*
 
 
 - ☐ `:CodeStatsStatus` command to show current unsent XP and last sent timestamp or error message
