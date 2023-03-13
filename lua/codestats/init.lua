@@ -34,6 +34,9 @@ local CodeStats = {
         group = group,
         pattern = '*',
         callback = function()
+          if vim.b.current_xp then
+            self:add_xp(vim.api.nvim_buf_get_option(0, 'filetype'), vim.b.current_xp)
+          end
           self:send_xp()
         end,
       })
