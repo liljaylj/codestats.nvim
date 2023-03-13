@@ -3,14 +3,14 @@
 ==============================================================================
 Table of Contents                           *codestats.nvim-table-of-contents*
 
-1. Code::Stats lua plugin for Neovim|codestats.nvim-code::stats-lua-plugin-for-neovim|
+2. Code::Stats lua plugin for Neovim|codestats.nvim-code::stats-lua-plugin-for-neovim|
   - Requirements|codestats.nvim-code::stats-lua-plugin-for-neovim-requirements|
   - Installation|codestats.nvim-code::stats-lua-plugin-for-neovim-installation|
   - Commands       |codestats.nvim-code::stats-lua-plugin-for-neovim-commands|
   - TODO:             |codestats.nvim-code::stats-lua-plugin-for-neovim-todo:|
 
 ==============================================================================
-1. Code::Stats lua plugin for Neovim*codestats.nvim-code::stats-lua-plugin-for-neovim*
+2. Code::Stats lua plugin for Neovim*codestats.nvim-code::stats-lua-plugin-for-neovim*
 
 Neovim plugin that counts your keypresses and saves statistics to Code::Stats
 <https://codestats.net>, a free stats tracking service for programmers.
