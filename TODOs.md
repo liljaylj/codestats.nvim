@@ -8,3 +8,9 @@
 - add documentation
 - ability to ignore filetypes, buffers, etc
 - custom autocommand event (CodeStatsXpSent)
+- pull profile info and integrate with status (update on timer or after pulse)
+- notify on:
+  - level up
+  - error
+  - flow level achievement
+- show info dashboard
