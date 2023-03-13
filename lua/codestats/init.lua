@@ -98,6 +98,9 @@ local CodeStats = {
       callback = function()
         self.xp_dict = {}
       end,
+      on_error = function(err)
+        -- TODO: handle error
+      end,
     }
   end,
 }
