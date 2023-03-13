@@ -76,7 +76,6 @@ local CodeStats = {
         xp = xp,
       })
     end
-    self.xp_dict = {}
 
     if #xp_list == 0 then
       return
@@ -95,7 +94,9 @@ local CodeStats = {
         ['Accept'] = '*/*',
       },
       raw = { '-m', '5' },
-      callback = function() end, -- execute curl asynchronously
+      callback = function()
+        self.xp_dict = {}
+      end,
     }
   end,
 }
