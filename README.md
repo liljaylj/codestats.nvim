@@ -45,3 +45,6 @@ use {
 - [ ] define autocmd `CodeStatsXPSent` to allow creating xp sent callbacks
 - [ ] research ability to count char deletion in insert mode
 - [ ] add screenshot/screencast (need to host it outside of this repo) to demonstrate functionality
+- [ ] error handling
+- [ ] add documentation
+- [ ] ability to ignore filetypes, buffers, etc
