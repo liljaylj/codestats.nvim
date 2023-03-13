@@ -7,6 +7,7 @@ local CodeStats = {
   setup = function(self, config)
     self.xp_dict = {}
     self.pulse_url = (config.base_url or 'https://codestats.net') .. '/api/my/pulses'
+    self.curl_timeout = config.curl_timeout or 5
     self.api_key = config.api_key
     local group = vim.api.nvim_create_augroup('codestats', { clear = true })
     vim.api.nvim_create_autocmd({ 'InsertCharPre', 'TextChanged' }, {
@@ -93,7 +94,7 @@ local CodeStats = {
         ['X-API-Token'] = self.api_key,
         ['Accept'] = '*/*',
       },
-      raw = { '-m', '5' },
+      raw = { '-m', self.curl_timeout },
       callback = function()
         self.xp_dict = {}
       end,
