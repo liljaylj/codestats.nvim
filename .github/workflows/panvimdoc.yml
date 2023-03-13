@@ -14,7 +14,6 @@ jobs:
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: codestats.nvim
-          shiftheadinglevelby: -1
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'Auto generate docs'
