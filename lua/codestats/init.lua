@@ -78,6 +78,10 @@ local CodeStats = {
     end
     self.xp_dict = {}
 
+    if #xp_list == 0 then
+      return
+    end
+
     curl.post {
       url = self.pulse_url,
       body = vim.json.encode {
