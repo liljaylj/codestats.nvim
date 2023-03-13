@@ -3,10 +3,19 @@
 ==============================================================================
 Table of Contents                           *codestats.nvim-table-of-contents*
 
-1. Requirements                                  |codestats.nvim-requirements|
-2. Installation                                  |codestats.nvim-installation|
-3. Commands                                          |codestats.nvim-commands|
-4. TODO:                                                |codestats.nvim-todo:|
+1. Codestats.nvim                              |codestats.nvim-codestats.nvim|
+  - Code::Stats lua plugin for Neovim|codestats.nvim-codestats.nvim-code::stats-lua-plugin-for-neovim|
+2. Requirements                                  |codestats.nvim-requirements|
+3. Installation                                  |codestats.nvim-installation|
+4. Commands                                          |codestats.nvim-commands|
+5. TODO:                                                |codestats.nvim-todo:|
+
+==============================================================================
+1. Codestats.nvim                              *codestats.nvim-codestats.nvim*
+
+
+CODE::STATS LUA PLUGIN FOR NEOVIM*codestats.nvim-codestats.nvim-code::stats-lua-plugin-for-neovim*
+
 Neovim plugin that counts your keypresses and saves statistics to Code::Stats
 <https://codestats.net>, a free stats tracking service for programmers.
 
@@ -18,7 +27,7 @@ with interface rendering.
 
 
 ==============================================================================
-1. Requirements                                  *codestats.nvim-requirements*
+2. Requirements                                  *codestats.nvim-requirements*
 
 
 - Neovim
@@ -27,7 +36,7 @@ with interface rendering.
 
 
 ==============================================================================
-2. Installation                                  *codestats.nvim-installation*
+3. Installation                                  *codestats.nvim-installation*
 
 
 1. Get a Code::Stats account and copy your API key from the Code::Stats machine
@@ -38,9 +47,10 @@ page <https://codestats.net/my/machines>.
 
 
 >lua
-    -- Packer.nvim
-    use {
-     'liljaylj/code-stats-nvim',
+    -- Lazy.nvim
+    {
+      'liljaylj/code-stats-nvim',
+      dependencies = { 'nvim-lua/plenary.nvim' },
       config = function()
         require('codestats').setup {
           base_url = 'https://codestats.net',  -- codestats.net base url
@@ -55,14 +65,14 @@ page <https://codestats.net/my/machines>.
 
 
 ==============================================================================
-3. Commands                                          *codestats.nvim-commands*
+4. Commands                                          *codestats.nvim-commands*
 
 
 - `:CodeStatsSend` — manually send XP to Code::Stats <https://codestats.net>
 
 
 ==============================================================================
-4. TODO:                                                *codestats.nvim-todo:*
+5. TODO:                                                *codestats.nvim-todo:*
 
 
 - ☐ `:CodeStatsStatus` command to show current unsent XP and last sent timestamp or error message
