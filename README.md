@@ -39,15 +39,3 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
 # Commands
 
 - `:CodeStatsSend` — manually send XP to [Code::Stats](https://codestats.net)
-
-# TODO:
-
-- [ ] `:CodeStatsStatus` command to show current unsent XP and last sent timestamp or error message
-- [ ] native statusline item and/or Lualine section
-- [ ] integrate vim.notify
-- [ ] define autocmd `CodeStatsXPSent` to allow creating xp sent callbacks
-- [ ] research ability to count char deletion in insert mode
-- [ ] add screenshot/screencast (need to host it outside of this repo) to demonstrate functionality
-- [ ] error handling
-- [ ] add documentation
-- [ ] ability to ignore filetypes, buffers, etc
