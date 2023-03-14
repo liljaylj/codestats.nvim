@@ -58,7 +58,7 @@ local CodeStats = {
 
     -- send xp on timer
     if config.send_on_timer == nil or config.send_on_timer then -- by default send xp on timer
-      local interval = config.timer_interval or 10000 -- every 10 seconds
+      local interval = config.timer_interval or 60000 -- every 60 seconds
       vim.loop.new_timer():start(
         interval,
         interval,
