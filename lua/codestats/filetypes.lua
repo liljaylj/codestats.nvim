@@ -37,6 +37,7 @@ return {
     ['jsp'] =                 'JSP',
     ['jsx'] =                 'JavaScript (JSX)',
     ['kotlin'] =              'Kotlin',
+    ['lua'] =                 'Lua',
     ['markdown'] =            'Markdown',
     ['objc'] =                'Objective-C',
     ['objcpp'] =              'Objective-C++',
