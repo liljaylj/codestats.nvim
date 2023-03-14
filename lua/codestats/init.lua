@@ -1,5 +1,7 @@
 local VERSION = '0.0.1'
 
+local LEVEL_FACTOR = 0.025
+
 local curl = require 'plenary.curl'
 local filetype_map = require 'codestats.filetypes'
 
@@ -7,6 +9,10 @@ local CodeStats = {
   setup = function(self, config)
     -- init
     self.current_xp_dict = {}
+    self.username = config.username
+    if self.username then
+      self.profile_url = (config.base_url or 'https://codestats.net') .. '/api/users/' .. self.username
+    end
     self.pulse_url = (config.base_url or 'https://codestats.net') .. '/api/my/pulses'
     self.curl_timeout = config.curl_timeout or 5
     self.api_key = config.api_key
@@ -66,6 +72,9 @@ local CodeStats = {
     vim.api.nvim_create_user_command('CodeStatsSend', function()
       self:send_xp()
     end, { desc = 'Explicitly send XP to Code::Stats' })
+
+    -- update profile data
+    self:update_profile()
   end,
 
   add_xp = function(self, filetype, xp)
@@ -108,6 +117,35 @@ local CodeStats = {
       raw = { '-m', self.curl_timeout },
       callback = function()
         self.current_xp_dict = {}
+      end,
+      on_error = function(err)
+        -- TODO: handle error
+      end,
+    }
+
+    -- update profile data
+    self:update_profile()
+  end,
+
+  update_profile = function(self)
+    if not self.profile_url then
+      return
+    end
+    curl.get {
+      url = self.profile_url,
+      headers = {
+        ['Content-Type'] = 'application/json',
+        ['User-Agent'] = 'code-stats-nvim/' .. VERSION,
+        ['X-API-Token'] = self.api_key,
+        ['Accept'] = '*/*',
+      },
+      raw = { '-m', self.curl_timeout },
+      callback = function(result)
+        local json = vim.json.decode(result.body)
+        self.total_xp = json.total_xp
+        self.new_xp = json.new_xp
+        self.total_xp_dict = json.languages
+        self.level = math.floor(LEVEL_FACTOR * math.sqrt(json.total_xp))
       end,
       on_error = function(err)
         -- TODO: handle error
