@@ -158,7 +158,20 @@ return {
   setup = function(config)
     CodeStats:setup(config)
   end,
-  get_xp = function()
-    return CodeStats.xp_dict
+  get_total_xp = function(buf)
+    if not buf then
+      return CodeStats.total_xp or ''
+    else
+      if type(CodeStats.total_xp_dict) ~= 'table' then
+        return ''
+      end
+      local filetype = vim.api.nvim_buf_get_option(buf, 'filetype')
+      local language_type = filetype_map[filetype] or filetype
+      local xp = (CodeStats.total_xp_dict[filetype] and CodeStats.total_xp_dict[filetype].xps) or 0
+      return xp + ((CodeStats.total_xp_dict[language_type] and CodeStats.total_xp_dict[language_type].xps) or 0)
+    end
+  end,
+  get_level = function()
+    return CodeStats.level or ''
   end,
 }
