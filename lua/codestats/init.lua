@@ -6,7 +6,7 @@ local filetype_map = require 'codestats.filetypes'
 local CodeStats = {
   setup = function(self, config)
     -- init
-    self.xp_dict = {}
+    self.current_xp_dict = {}
     self.pulse_url = (config.base_url or 'https://codestats.net') .. '/api/my/pulses'
     self.curl_timeout = config.curl_timeout or 5
     self.api_key = config.api_key
@@ -49,6 +49,8 @@ local CodeStats = {
         end,
       })
     end
+
+    -- send xp on timer
     if config.send_on_timer == nil or config.send_on_timer then -- by default send xp on timer
       local interval = config.timer_interval or 10000 -- every 10 seconds
       vim.loop.new_timer():start(
@@ -74,13 +76,13 @@ local CodeStats = {
     -- get the language type based on what vim passed to us
     local language_type = filetype_map[filetype] or filetype
 
-    local count = self.xp_dict[language_type] or 0
-    self.xp_dict[language_type] = count + xp
+    local count = self.current_xp_dict[language_type] or 0
+    self.current_xp_dict[language_type] = count + xp
   end,
 
   send_xp = function(self)
     local xp_list = {}
-    for ft, xp in pairs(self.xp_dict) do
+    for ft, xp in pairs(self.current_xp_dict) do
       table.insert(xp_list, {
         language = ft,
         xp = xp,
@@ -105,7 +107,7 @@ local CodeStats = {
       },
       raw = { '-m', self.curl_timeout },
       callback = function()
-        self.xp_dict = {}
+        self.current_xp_dict = {}
       end,
       on_error = function(err)
         -- TODO: handle error
