@@ -5,11 +5,15 @@ local filetype_map = require 'codestats.filetypes'
 
 local CodeStats = {
   setup = function(self, config)
+    -- init
     self.xp_dict = {}
     self.pulse_url = (config.base_url or 'https://codestats.net') .. '/api/my/pulses'
     self.curl_timeout = config.curl_timeout or 5
     self.api_key = config.api_key
+
+    -- autocmds
     local group = vim.api.nvim_create_augroup('codestats', { clear = true })
+
     vim.api.nvim_create_autocmd({ 'InsertCharPre', 'TextChanged' }, {
       group = group,
       pattern = '*',
@@ -20,6 +24,7 @@ local CodeStats = {
         vim.b.current_xp = vim.b.current_xp + 1
       end,
     })
+
     vim.api.nvim_create_autocmd({ 'CursorHold', 'BufLeave' }, {
       group = group,
       pattern = '*',
@@ -30,6 +35,8 @@ local CodeStats = {
         vim.b.current_xp = 0
       end,
     })
+
+    -- send xp on vim leave
     if config.send_on_exit == nil or config.send_on_exit then -- by default send xp on nvim exit
       vim.api.nvim_create_autocmd({ 'VimLeavePre' }, {
         group = group,
@@ -52,6 +59,8 @@ local CodeStats = {
         end)
       )
     end
+
+    -- user commands
     vim.api.nvim_create_user_command('CodeStatsSend', function()
       self:send_xp()
     end, { desc = 'Explicitly send XP to Code::Stats' })
