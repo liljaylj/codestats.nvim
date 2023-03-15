@@ -77,7 +77,11 @@ local CodeStats = {
       self:send_xp()
     end, { desc = 'Explicitly send XP to Code::Stats' })
 
-    -- update profile data
+    vim.api.nvim_create_user_command('CodeStatsProfileUpdate', function()
+      self:update_profile()
+    end, { desc = 'Explicitly pull profile data from Code::Stats' })
+
+    -- initial profile data update
     self:update_profile()
   end,
 
