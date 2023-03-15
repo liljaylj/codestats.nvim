@@ -5,6 +5,10 @@ local LEVEL_FACTOR = 0.025
 local curl = require 'plenary.curl'
 local filetype_map = require 'codestats.filetypes'
 
+local calculate_level = function(xp)
+  return math.floor(LEVEL_FACTOR * math.sqrt(xp))
+end
+
 local CodeStats = {
   setup = function(self, config)
     -- init
@@ -145,7 +149,7 @@ local CodeStats = {
         self.total_xp = json.total_xp
         self.new_xp = json.new_xp
         self.total_xp_dict = json.languages
-        self.level = math.floor(LEVEL_FACTOR * math.sqrt(json.total_xp))
+        self.level = calculate_level(json.total_xp)
       end,
       on_error = function(err)
         -- TODO: handle error
