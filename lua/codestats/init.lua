@@ -124,6 +124,7 @@ local CodeStats = {
         vim.schedule(function()
           vim.api.nvim_exec_autocmds('User', { pattern = 'CodeStatsXpSent' })
         end)
+        self:update_profile()
       end,
       on_error = function(err)
         -- TODO: handle error
@@ -131,7 +132,6 @@ local CodeStats = {
     }
 
     -- update profile data
-    self:update_profile()
   end,
 
   update_profile = function(self)
