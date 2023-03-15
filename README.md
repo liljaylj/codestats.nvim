@@ -26,6 +26,7 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     require('codestats').setup {
+      username = '<your user name>',  -- needed to fetch profile data
       base_url = 'https://codestats.net',  -- codestats.net base url
       api_key = '<your API key>',
       send_on_exit = true,  -- send xp on nvim exit
