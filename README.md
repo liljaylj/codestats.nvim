@@ -47,3 +47,50 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
 
 - `CodeStatsXpSent` — triggers when XP is succesfully sent to [Code::Stats](https://codestats.net)
 - `CodeStatsProfileUpdated` — triggers when profile data successfully pulled from [Code::Stats](https://codestats.net)
+
+# API
+
+```lua
+local codestats = require 'codestats'
+
+codestats.get_xp()  -- get total xp for profile
+codestats.get_xp(<buffer id>)  -- get xp for language of specified buffer
+codestats.get_xp(0)  -- get xp for language of current buffer
+
+codestats.get_level()  -- get level for profile
+codestats.get_level(<buffer id>)  -- get level for language of specified buffer
+codestats.get_level(0)  -- get level for language of current buffer
+```
+
+## Tips
+
+### Neovim native statusline
+
+```lua
+vim.opt.statusline:append [[%{luaeval("require'codestats'.get_xp()")}]]  -- total xp
+vim.opt.statusline:append [[%{luaeval("require'codestats'.get_xp(0)")}]]  -- current buf language xp
+vim.opt.statusline:append [[%{luaeval("require'codestats'.get_level()")}]]  -- total level
+vim.opt.statusline:append [[%{luaeval("require'codestats'.get_level(0)")}]]  -- current buf language level
+```
+
+### Lualine
+
+```lua
+local xp = function()
+  return codestats.get_xp(0)  -- current buf language xp
+end
+
+require('lualine').setup {
+  sections = { 
+    lualine_x = {
+      'filetype',
+      {
+        xp,
+        fmt = function(s)
+          return s and (s ~= '0' or nil) and s .. 'xp'
+        end,
+      },
+    },
+  },
+}
+```

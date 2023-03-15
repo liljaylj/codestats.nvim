@@ -14,3 +14,4 @@
   - error
   - flow level achievement
 - show info dashboard
+- events for errors
