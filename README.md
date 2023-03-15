@@ -39,3 +39,8 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
 # Commands
 
 - `:CodeStatsSend` — manually send XP to [Code::Stats](https://codestats.net)
+
+# Events
+
+- `CodeStatsXpSent` — triggers when XP is succesfully sent to [Code::Stats](https://codestats.net)
+- `CodeStatsProfileUpdated` — triggers when profile data successfully pulled from [Code::Stats](https://codestats.net)
