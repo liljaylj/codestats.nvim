@@ -121,6 +121,9 @@ local CodeStats = {
       raw = { '-m', self.curl_timeout },
       callback = function()
         self.current_xp_dict = {}
+        vim.schedule(function()
+          vim.api.nvim_exec_autocmds('User', { pattern = 'CodeStatsXpSent' })
+        end)
       end,
       on_error = function(err)
         -- TODO: handle error
@@ -150,6 +153,9 @@ local CodeStats = {
         self.new_xp = json.new_xp
         self.total_xp_dict = json.languages
         self.level = calculate_level(json.total_xp)
+        vim.schedule(function()
+          vim.api.nvim_exec_autocmds('User', { pattern = 'CodeStatsProfileUpdated', data = self })
+        end)
       end,
       on_error = function(err)
         -- TODO: handle error
