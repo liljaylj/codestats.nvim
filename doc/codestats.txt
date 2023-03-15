@@ -1,4 +1,4 @@
-*codestats.txt*           For NVIM v0.8.0           Last change: 2023 March 13
+*codestats.txt*           For NVIM v0.8.0           Last change: 2023 March 15
 
 ==============================================================================
 Table of Contents                                *codestats-table-of-contents*
