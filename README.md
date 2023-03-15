@@ -31,7 +31,8 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
       api_key = '<your API key>',
       send_on_exit = true,  -- send xp on nvim exit
       send_on_timer = true,  -- send xp on timer
-      timer_interval = 10000,  -- timer interval in ms
+      timer_interval = 10000,  -- timer interval in milliseconds
+      curl_timeout = 5,  -- curl request timeout in seconds
     }
   end,
 }
