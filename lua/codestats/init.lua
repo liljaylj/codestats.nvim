@@ -22,7 +22,7 @@ local CodeStats = {
     self.api_key = config.api_key
 
     -- autocmds
-    local group = vim.api.nvim_create_augroup('codestats', { clear = true })
+    local group = vim.api.nvim_create_augroup('codestats-plugin-autocommands', { clear = true })
 
     vim.api.nvim_create_autocmd({ 'InsertCharPre', 'TextChanged' }, {
       group = group,
