@@ -60,6 +60,9 @@ codestats.get_xp(0)  -- get xp for language of current buffer
 codestats.get_level()  -- get level for profile
 codestats.get_level(<buffer id>)  -- get level for language of specified buffer
 codestats.get_level(0)  -- get level for language of current buffer
+
+-- utils
+codestats.calculate_level(<xp>)  -- calculate level for given XP value
 ```
 
 ## Tips

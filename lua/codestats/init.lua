@@ -194,6 +194,7 @@ return {
   setup = function(config)
     CodeStats:setup(config)
   end,
+  calculate_level = calculate_level,
   get_xp = get_xp,
   get_level = get_level,
 }
