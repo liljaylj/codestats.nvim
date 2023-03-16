@@ -1,4 +1,4 @@
-*codestats.txt*           For NVIM v0.8.0           Last change: 2023 March 15
+*codestats.txt*           For NVIM v0.8.0           Last change: 2023 March 16
 
 ==============================================================================
 Table of Contents                                *codestats-table-of-contents*
@@ -96,6 +96,10 @@ page <https://codestats.net/my/machines>.
     codestats.get_level()  -- get level for profile
     codestats.get_level(<buffer id>)  -- get level for language of specified buffer
     codestats.get_level(0)  -- get level for language of current buffer
+    
+    -- utils
+    codestats.calculate_level(<xp>)  -- calculate level for given XP value
+    codestats.filetype_to_language(<ft>)  -- map language for given filetype
 <
 
 
