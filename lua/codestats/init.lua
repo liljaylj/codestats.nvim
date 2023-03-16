@@ -9,6 +9,10 @@ local calculate_level = function(xp)
   return math.floor(LEVEL_FACTOR * math.sqrt(xp))
 end
 
+local filetype_to_language = function(ft)
+  return filetype_map[ft] or ft
+end
+
 local CodeStats = {
   setup = function(self, config)
     -- init
@@ -91,7 +95,7 @@ local CodeStats = {
     end
 
     -- get the language type based on what vim passed to us
-    local language_type = filetype_map[filetype] or filetype
+    local language_type = filetype_to_language(filetype)
 
     local count = self.current_xp_dict[language_type] or 0
     self.current_xp_dict[language_type] = count + xp
@@ -176,7 +180,7 @@ local get_xp = function(buf)
       return 0
     end
     local filetype = vim.api.nvim_buf_get_option(buf, 'filetype')
-    local language_type = filetype_map[filetype] or filetype
+    local language_type = filetype_to_language(filetype)
     local xp = (CodeStats.total_xp_dict[filetype] and CodeStats.total_xp_dict[filetype].xps) or 0
     return xp + ((CodeStats.total_xp_dict[language_type] and CodeStats.total_xp_dict[language_type].xps) or 0)
   end
@@ -195,6 +199,7 @@ return {
     CodeStats:setup(config)
   end,
   calculate_level = calculate_level,
+  filetype_to_language = filetype_to_language,
   get_xp = get_xp,
   get_level = get_level,
 }

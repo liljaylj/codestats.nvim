@@ -63,6 +63,7 @@ codestats.get_level(0)  -- get level for language of current buffer
 
 -- utils
 codestats.calculate_level(<xp>)  -- calculate level for given XP value
+codestats.filetype_to_language(<ft>)  -- map language for given filetype
 ```
 
 ## Tips
