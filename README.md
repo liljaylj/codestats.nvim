@@ -40,7 +40,7 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
 
 # Commands
 
-- `:CodeStatsSend` — manually send XP to [Code::Stats](https://codestats.net)
+- `:CodeStatsXpSend` — manually send XP to [Code::Stats](https://codestats.net)
 - `:CodeStatsProfileUpdate` — manually pull profile data from [Code::Stats](https://codestats.net)
 
 # Events

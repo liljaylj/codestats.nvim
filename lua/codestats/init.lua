@@ -77,7 +77,7 @@ local CodeStats = {
     end
 
     -- user commands
-    vim.api.nvim_create_user_command('CodeStatsSend', function()
+    vim.api.nvim_create_user_command('CodeStatsXpSend', function()
       self:send_xp()
     end, { desc = 'Explicitly send XP to Code::Stats' })
 
