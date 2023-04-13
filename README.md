@@ -22,7 +22,7 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
 ```lua
 -- Lazy.nvim
 {
-  'liljaylj/code-stats-nvim',
+  'liljaylj/codestats.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
   event = { 'TextChanged', 'InsertEnter' },
   cmd = { 'CodeStatsXpSend', 'CodeStatsProfileUpdate' },
