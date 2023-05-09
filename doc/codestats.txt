@@ -1,4 +1,4 @@
-*codestats.txt*           For NVIM v0.8.0           Last change: 2023 March 28
+*codestats.txt*            For NVIM v0.8.0            Last change: 2023 May 09
 
 ==============================================================================
 Table of Contents                                *codestats-table-of-contents*
@@ -50,7 +50,7 @@ page <https://codestats.net/my/machines>.
 >lua
     -- Lazy.nvim
     {
-      'liljaylj/code-stats-nvim',
+      'liljaylj/codestats.nvim',
       dependencies = { 'nvim-lua/plenary.nvim' },
       event = { 'TextChanged', 'InsertEnter' },
       cmd = { 'CodeStatsXpSend', 'CodeStatsProfileUpdate' },
