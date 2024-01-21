@@ -203,21 +203,21 @@ local CodeStats = {
 
 local get_xp = function(buf)
   if not buf then
-    return CodeStats.total_xp or 0
+    return CodeStats.profile.total_xp or 0
   else
-    if type(CodeStats.languages) ~= 'table' then
+    if type(CodeStats.profile.languages) ~= 'table' then
       return 0
     end
     local filetype = vim.api.nvim_buf_get_option(buf, 'filetype')
     local language_type = filetype_to_language(filetype)
-    local xp = (CodeStats.languages[filetype] and CodeStats.languages[filetype].xps) or 0
-    return xp + ((CodeStats.languages[language_type] and CodeStats.languages[language_type].xps) or 0)
+    local xp = (CodeStats.profile.languages[filetype] and CodeStats.profile.languages[filetype].xps) or 0
+    return xp + ((CodeStats.profile.languages[language_type] and CodeStats.profile.languages[language_type].xps) or 0)
   end
 end
 
 local get_level = function(buf)
   if not buf then
-    return CodeStats.level or 0
+    return CodeStats.profile.level or 0
   else
     return calculate_level(get_xp(buf))
   end
