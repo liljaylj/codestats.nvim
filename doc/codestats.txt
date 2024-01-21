@@ -1,4 +1,4 @@
-*codestats.txt*            For NVIM v0.8.0            Last change: 2023 May 09
+*codestats.txt*          For NVIM v0.8.0          Last change: 2024 January 21
 
 ==============================================================================
 Table of Contents                                *codestats-table-of-contents*
@@ -31,7 +31,6 @@ with interface rendering.
 
 REQUIREMENTS                             *codestats-installation-requirements*
 
-
 - Neovim
 - Curl
 - plenary.nvim <https://github.com/nvim-lua/plenary.nvim>
@@ -39,9 +38,9 @@ REQUIREMENTS                             *codestats-installation-requirements*
 
 SETUP                                           *codestats-installation-setup*
 
-
 1. Get a Code::Stats account and copy your API key from the Code::Stats machine
 page <https://codestats.net/my/machines>.
+
 
 2. Install and configure code-stats-nvim
 
@@ -72,14 +71,12 @@ page <https://codestats.net/my/machines>.
 ==============================================================================
 3. Commands                                               *codestats-commands*
 
-
 - `:CodeStatsXpSend` — manually send XP to Code::Stats <https://codestats.net>
 - `:CodeStatsProfileUpdate` — manually pull profile data from Code::Stats <https://codestats.net>
 
 
 ==============================================================================
 4. Events                                                   *codestats-events*
-
 
 - `CodeStatsXpSent` — triggers when XP is succesfully sent to Code::Stats <https://codestats.net>
 - `CodeStatsProfileUpdated` — triggers when profile data successfully pulled from Code::Stats <https://codestats.net>
