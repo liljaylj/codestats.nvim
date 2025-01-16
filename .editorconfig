@@ -8,8 +8,15 @@ indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.{json,conf,toml}]
+indent_size = 2
+insert_final_newline = false
+
 [*.{md,txt}]
 trim_trailing_whitespace = false
 
-[*.lua]
+[*.{lua,yml,yaml}]
 indent_size = 2
+
+[*.{sh,bash,zsh}]
+indent_style = tab
