@@ -1,3 +1,4 @@
+- use [tjdevries/vlog.nvim](https://github.com/tjdevries/vlog.nvim/blob/master/log.lua) for logs
 - `:CodeStatsStatus` command to show current unsent XP and last sent timestamp or error message
 - integrate vim.notify
 - define autocmd `CodeStatsXPSent` to allow creating xp sent callbacks
@@ -20,3 +21,8 @@
 - repro https://lazy.folke.io/developers
 - check syntax, formatting and tests; docs in CI
 - cocogitto check from tg-notify
+- use vim.notify and vim.print
+- token from envvar
+- handle client errors
+- handle api errors
+- cog.toml
