@@ -2,6 +2,7 @@
 
 set -Eeuo pipefail
 
+result=0
 case "$1" in
 setup)
     # install git hooks
@@ -17,9 +18,25 @@ setup)
         install -v -Dm755 "hooks/$hook" ".git/hooks/$hook"
     done < <(ls -1 hooks/)
     ;;
+check)
+    >&2 echo
+    >&2 echo ':: Lint'
+    >&2 echo
+    if ! selene .; then
+        result=1
+    fi
+    >&2 echo
+    >&2 echo ':: Check format'
+    >&2 echo
+    if ! stylua -c .; then
+        result=1
+    fi
+    ;;
 *)
     >&2 echo
     >&2 echo "$(basename "$0") <command>:"
     >&2 echo '  setup - install git hooks'
+    >&2 echo '  check - lint and verify format'
     ;;
 esac
+exit "$result"
