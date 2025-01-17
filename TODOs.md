@@ -13,3 +13,10 @@
   - flow level achievement
 - show info dashboard
 - events for errors
+- hand-written docs
+- check docs is updated in pre-commit
+- test (busted)
+- minimal config
+- repro https://lazy.folke.io/developers
+- check syntax, formatting and tests; docs in CI
+- cocogitto check from tg-notify
