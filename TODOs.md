@@ -25,4 +25,3 @@
 - token from envvar
 - handle client errors
 - handle api errors
-- cog.toml
