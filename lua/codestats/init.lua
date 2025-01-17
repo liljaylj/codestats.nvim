@@ -158,7 +158,7 @@ local CodeStats = {
         end)
         self:update_profile()
       end,
-      on_error = function(err)
+      on_error = function(_err)
         -- TODO: handle error
       end,
     }
@@ -194,7 +194,7 @@ local CodeStats = {
           vim.api.nvim_exec_autocmds('User', { pattern = 'CodeStatsProfileUpdated', data = self })
         end)
       end,
-      on_error = function(err)
+      on_error = function(_err)
         -- TODO: handle error
       end,
     }

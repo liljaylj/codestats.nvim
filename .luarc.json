@@ -2,25 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
   "runtime.version": "LuaJIT",
   "workspace.checkThirdParty": "false",
-  "format.enable": true,
-  "format.defaultConfig": {
-    "indent_style": "space",
-    "indent_size": "2",
-    "quote_style": "single",
-    "continuation_indent": "4",
-    "max_line_length": "120",
-    "end_of_line": "LF",
-    "trailing_table_separator": "smart",
-    "insert_final_newline": "true",
-    "space_around_table_field_list": "true",
-    "space_inside_square_brackets": "false",
-    "space_before_inline_comment": "2",
-    "align_call_args": "false",
-    "align_function_params": "true",
-    "align_continuous_assign_statement": "false",
-    "align_continuous_rect_table_field": "false",
-    "break_all_list_when_line_exceed": "true",
-    "auto_collapse_lines": "false"
-  },
+  "format.enable": false,
   "hint.enable": true
 }
