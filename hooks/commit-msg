@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+>&2 echo
+>&2 echo ':: Check conventional commit'
+>&2 echo
+cog verify -f "$1"

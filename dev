@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+case "$1" in
+setup)
+    # install git hooks
+    while read -r hook; do
+        if [[ -f ".git/hooks/$hook" ]]; then
+            if diff --color=always -u ".git/hooks/$hook" "hooks/$hook"; then
+                continue
+            fi
+            >&2 echo
+            >&2 read -r -s -n 1 -p 'Press [Enter] to overwrite or [Ctrl+C] to cancel.' </dev/tty
+            >&2 echo
+        fi
+        install -v -Dm755 "hooks/$hook" ".git/hooks/$hook"
+    done < <(ls -1 hooks/)
+    ;;
+*)
+    >&2 echo
+    >&2 echo "$(basename "$0") <command>:"
+    >&2 echo '  setup - install git hooks'
+    ;;
+esac
