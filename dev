@@ -22,14 +22,31 @@ check)
     >&2 echo
     >&2 echo ':: Lint'
     >&2 echo
+    lint_result=0
     if ! selene .; then
+        lint_result=1
         result=1
     fi
     >&2 echo
     >&2 echo ':: Check format'
     >&2 echo
+    format_result=0
     if ! stylua -c .; then
+        format_result=1
         result=1
+    fi
+    >&2 echo
+    >&2 echo ':: Result'
+    >&2 echo
+    if [[ "$result" -gt 0 ]]; then
+        if [[ "$lint_result" -gt 0 ]]; then
+            >&2 echo '- Check and fix linting errors.'
+        fi
+        if [[ "$format_result" -gt 0 ]]; then
+            >&2 echo '- Format code with "stylua .".'
+        fi
+    else
+        >&2 echo 'Everything is OK.'
     fi
     ;;
 *)

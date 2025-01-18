@@ -2,11 +2,4 @@
 
 set -Eeuo pipefail
 
->&2 echo
->&2 echo ':: Lint'
->&2 echo
-selene .
->&2 echo
->&2 echo ':: Check format'
->&2 echo
-stylua -c .
+./dev check
