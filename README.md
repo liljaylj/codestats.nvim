@@ -1,4 +1,4 @@
-# Codestats.nvim
+# CodeStats.nvim
 
 Neovim plugin that counts your keypresses and saves statistics to [Code::Stats](https://codestats.net), a free stats tracking service for programmers.
 
@@ -14,9 +14,9 @@ This is port of the [official plugin](https://gitlab.com/code-stats/code-stats-v
 
 ## Setup
 
-1) Get a Code::Stats account and copy your API key from the [Code::Stats machine page](https://codestats.net/my/machines).
-
-2) Install and configure code-stats-nvim
+1) Go to your profile at [Code::Stats web site](https://codestats.net/my/profile) and copy your username in url bar.
+2) Copy your API key from the [Code::Stats "Machines" page](https://codestats.net/my/machines).
+3) Install and configure `codestats.nvim`
 
 
 ```lua
