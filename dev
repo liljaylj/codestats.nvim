@@ -20,6 +20,16 @@ setup)
     ;;
 check)
     >&2 echo
+    >&2 echo ':: Git hooks integrity'
+    >&2 echo
+    hooks_result=0
+    while read -r hook; do
+        if ! diff --color=always -u ".git/hooks/$hook" "hooks/$hook"; then
+            hooks_result=1
+            result=1
+        fi
+    done < <(ls -1 hooks/)
+    >&2 echo
     >&2 echo ':: Lint'
     >&2 echo
     lint_result=0
@@ -39,6 +49,9 @@ check)
     >&2 echo ':: Result'
     >&2 echo
     if [[ "$result" -gt 0 ]]; then
+        if [[ "$hooks_result" -gt 0 ]]; then
+            >&2 echo '- Please setup Git hooks with "./dev setup".'
+        fi
         if [[ "$lint_result" -gt 0 ]]; then
             >&2 echo '- Check and fix linting errors.'
         fi
